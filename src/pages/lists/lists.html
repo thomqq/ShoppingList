@@ -6,10 +6,12 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ul>
-    <li *ngFor="let item of shoppingLists">
-      {{item.name}}
-    </li>
-  </ul>
+<ion-content>
+
+  <ion-list inset reorder="true" (ionItemReorder)="reorderItems($event)">
+    <button ion-item *ngFor="let item of shoppingLists" (click)="goToList(item.name)">
+      {{ item.name }}
+    </button>
+  </ion-list>
+
 </ion-content>

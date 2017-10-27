@@ -7,6 +7,6 @@ export class ShoppingList {
 @Injectable()
 export class ShoppingListService {
   getLists(): ShoppingList[] {
-    return [{name: 'pierwsza'}, {name: "druga"}];
+    return [{name: 'pierwsza'}, {name: "druga"}, {name: 'trzecia'}, {name: "czwarta"}, {name: 'piata'}, {name: "szosta"}];
   }
 }
