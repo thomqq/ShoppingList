@@ -10,13 +10,13 @@ import { reorderArray } from 'ionic-angular';
 })
 export class ListsPage implements OnInit {
 
-  shoppingLists: ShoppingList[];
+  shoppingLists: string[];
 
   constructor(private navi: NavController, private shoppingListService: ShoppingListService, public alertCtrl: AlertController) {
   }
 
   ngOnInit(): void {
-    this.shoppingLists = this.shoppingListService.getLists();
+    this.shoppingLists = this.shoppingListService.getListsName();
   }
 
   goToList( name: string ) {
@@ -48,6 +48,6 @@ export class ListsPage implements OnInit {
   }
 
   addList(name: string) {
-    this.shoppingLists.push({name: name});
+    this.shoppingLists.push(name);
   }
 }

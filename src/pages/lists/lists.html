@@ -9,9 +9,9 @@
 
 <ion-content>
 
-  <ion-list inset reorder="true" (ionItemReorder)="reorderItems($event)">
-    <button ion-item *ngFor="let item of shoppingLists" (click)="goToList(item.name)">
-      {{ item.name }}
+  <ion-list inset show-reorder="true" show-delete="true" reorder="true" (ionItemReorder)="reorderItems($event)">
+    <button ion-item *ngFor="let item of shoppingLists" (click)="goToList(item)">
+      {{ item }}
     </button>
   </ion-list>
 

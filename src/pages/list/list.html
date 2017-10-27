@@ -7,5 +7,9 @@
 </ion-header>
 
 <ion-content padding>
-List
+  <ion-list inset reorder="true" (ionItemReorder)="reorderItems($event)">
+    <button ion-item *ngFor="let item of shoppingList.items" >
+      {{ item.name }}
+    </button>
+  </ion-list>
 </ion-content>
