@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Lists
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ul>
+    <li *ngFor="let item of shoppingLists">
+      {{item.name}}
+    </li>
+  </ul>
+</ion-content>
