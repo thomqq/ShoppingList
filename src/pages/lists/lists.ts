@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { AlertController, NavController } from 'ionic-angular';
 import { ShoppingList, ShoppingListService } from "../../services/ShoppingListService";
 import { ListPage } from '../list/list';
 import { reorderArray } from 'ionic-angular';
@@ -12,7 +12,7 @@ export class ListsPage implements OnInit {
 
   shoppingLists: ShoppingList[];
 
-  constructor(private navi: NavController, private shoppingListService: ShoppingListService) {
+  constructor(private navi: NavController, private shoppingListService: ShoppingListService, public alertCtrl: AlertController) {
   }
 
   ngOnInit(): void {
@@ -24,5 +24,30 @@ export class ListsPage implements OnInit {
   }
   reorderItems(indexes) {
     this.shoppingLists = reorderArray(this.shoppingLists, indexes);
+  }
+
+  showAddAlert() {
+    var  popup = this.alertCtrl.create({
+      title: "New shopping list",
+      inputs: [
+        {
+          name: "listName",
+          placeholder: "Name"
+        }
+      ],
+      buttons: [
+        {
+          text: "Save",
+          handler: data => {
+            this.addList(data.listName);
+          }
+        }
+      ]
+    });
+    popup.present();
+  }
+
+  addList(name: string) {
+    this.shoppingLists.push({name: name});
   }
 }
