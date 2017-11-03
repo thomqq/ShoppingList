@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 
 export class ShoppingListItem {
   public name: string;
-  public status: number;
+  public status: boolean;
 
 }
 

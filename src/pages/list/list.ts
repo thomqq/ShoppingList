@@ -24,4 +24,7 @@ export class ListPage implements OnInit {
     this.shoppingList.items = reorderArray(this.shoppingList.items, indexes);
   }
 
+  checkItem(i: number) {
+
+  }
 }

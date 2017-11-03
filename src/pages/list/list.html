@@ -8,8 +8,13 @@
 
 <ion-content padding>
   <ion-list inset reorder="true" (ionItemReorder)="reorderItems($event)">
-    <button ion-item *ngFor="let item of shoppingList.items" >
-      {{ item.name }}
+    <button ion-item *ngFor="let item of shoppingList.items; let i = index">
+      <ion-label><{{item.name}}</ion-label>
+      <ion-checkbox>xzc</ion-checkbox>
+      <ion-note item-end>
+        <button ion-button (click)="deleteList(i)">-</button>
+      </ion-note>
     </button>
+
   </ion-list>
 </ion-content>
