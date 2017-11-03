@@ -50,4 +50,24 @@ export class ListsPage implements OnInit {
   addList(name: string) {
     this.shoppingLists.push(name);
   }
+
+  deleteList(i: number) {
+    var popup = this.alertCtrl.create({
+      title: "Delete list: " + this.shoppingLists[i] + "?",
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+        {
+          text: 'Delete',
+          handler: () => {
+            this.shoppingLists.splice(i, 1);
+            this.navi.pop();
+          }
+        }
+      ]
+    });
+    popup.present();
+  }
 }
