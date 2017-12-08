@@ -1,20 +1,21 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      {{name}}
+      <span style="float:left"> {{name}}</span>
+      <span style="float:right"><button ion-button (click)="deleteAllCheckedItemPopup()"><ion-icon
+        name="trash"></ion-icon></button></span>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list inset reorder="true" (ionItemReorder)="reorderItems($event)">
-    <button ion-item *ngFor="let item of shoppingList.items; let i = index">
-      <ion-label><{{item.name}}</ion-label>
-      <ion-checkbox>xzc</ion-checkbox>
-      <ion-note item-end>
-        <button ion-button (click)="deleteList(i)">-</button>
-      </ion-note>
-    </button>
+<ion-content >
+  <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
 
+    <ion-item *ngFor="let item of shoppingList.items; let i = index">
+      <ion-label>{{item.name}}</ion-label>
+      <ion-checkbox item-end [(ngModel)]="item.isSelected" ></ion-checkbox>
+    </ion-item>
   </ion-list>
+
 </ion-content>
+

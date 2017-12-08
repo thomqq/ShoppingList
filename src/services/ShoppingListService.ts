@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 
 export class ShoppingListItem {
   public name: string;
-  public status: boolean;
+  public isSelected: boolean;
 
 }
 
@@ -18,12 +18,12 @@ export class ShoppingListService {
   listsmap = {};
 
   constructor() {
-    this.listsmap['pierwsza'] = {name: 'pierwsza', items: [{name: 'a', status: 0}, {name: 'aa', status: 0}, {name: 'aaa', status: 0}]};
-    this.listsmap['druga'] = {name: "druga", items: [{name: 'b', status: 0}]};
-    this.listsmap['trzecia'] = {name: 'trzecia', items: [{name: 'c', status: 0}]};
-    this.listsmap['czwarta'] = {name: "czwarta", items: [{name: 'd', status: 0}]};
-    this.listsmap['piata'] = {name: 'piata', items: [{name: 'e', status: 0}]};
-    this.listsmap['szosta'] = {name: "szosta", items: [{name: 'f', status: 0}]};
+    this.listsmap['pierwsza'] = {name: 'pierwsza', items: [{name: 'a', isSelected: false}, {name: 'aa', isSelected: false}, {name: 'aaa', isSelected: false}]};
+    this.listsmap['druga'] = {name: "druga", items: [{name: 'b', isSelected: false}]};
+    this.listsmap['trzecia'] = {name: 'trzecia', items: [{name: 'c', isSelected: false}]};
+    this.listsmap['czwarta'] = {name: "czwarta", items: [{name: 'd', isSelected: false}]};
+    this.listsmap['piata'] = {name: 'piata', items: [{name: 'e', isSelected: false}]};
+    this.listsmap['szosta'] = {name: "szosta", items: [{name: 'f', isSelected: false}]};
 
   }
 

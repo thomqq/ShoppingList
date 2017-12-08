@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { List, NavController, NavParams, reorderArray } from 'ionic-angular';
+import { AlertController, List, NavController, NavParams, reorderArray } from 'ionic-angular';
 import { ShoppingList, ShoppingListService } from '../../services/ShoppingListService';
 
 @Component({
@@ -12,7 +12,7 @@ export class ListPage implements OnInit {
   public name: string;
   public shoppingList: ShoppingList;
 
-  constructor(private navi: NavController, public navParams: NavParams, private listsService: ShoppingListService) {
+  constructor(private navi: NavController, public navParams: NavParams, private listsService: ShoppingListService, public alertCtrl: AlertController) {
     this.name = this.navParams.get("name");
   }
 
@@ -24,7 +24,33 @@ export class ListPage implements OnInit {
     this.shoppingList.items = reorderArray(this.shoppingList.items, indexes);
   }
 
-  checkItem(i: number) {
-
+  deleteAllCheckedItemPopup() {
+    var popup = this.alertCtrl.create({
+      title: "Delete all checked item!",
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+        {
+          text: 'Delete',
+          handler: () => {
+            this.deleteAllCheckedItem();
+          }
+        }
+      ]
+    });
+    popup.present();
   }
+
+  deleteAllCheckedItem() {
+    for( var i = 0 ; i < this.shoppingList.items.length;) {
+      if (this.shoppingList.items[i].isSelected) {
+        this.shoppingList.items.splice(i, 1)
+      } else {
+        ++i;
+      }
+    }
+  }
+
 }

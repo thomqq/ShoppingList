@@ -63,7 +63,6 @@ export class ListsPage implements OnInit {
           text: 'Delete',
           handler: () => {
             this.shoppingLists.splice(i, 1);
-            this.navi.pop();
           }
         }
       ]
