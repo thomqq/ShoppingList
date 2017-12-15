@@ -1,4 +1,6 @@
 import { Injectable } from "@angular/core";
+import { Http } from "@angular/http";
+import 'rxjs/add/operator/map';
 
 export class ShoppingListItem {
   public name: string;
@@ -16,8 +18,10 @@ export class ShoppingList {
 export class ShoppingListService {
 
   listsmap = {};
+  restUrl="http://arxsoft.net:8080/";
+  //private data: String[];
 
-  constructor() {
+  constructor(public http: Http) {
     this.listsmap['pierwsza'] = {name: 'pierwsza', items: [{name: 'a', isSelected: false}, {name: 'aa', isSelected: false}, {name: 'aaa', isSelected: false}]};
     this.listsmap['druga'] = {name: "druga", items: [{name: 'b', isSelected: false}]};
     this.listsmap['trzecia'] = {name: 'trzecia', items: [{name: 'c', isSelected: false}]};
@@ -27,9 +31,20 @@ export class ShoppingListService {
 
   }
 
-  getListsName(): string[] {
-    return Object.keys(this.listsmap);
+  getListsName() {
+    return new Promise(resolve => {
+      this.http.get(this.restUrl+'/pobierzSlownikPozycji').subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
   }
+
+
+  // getListsName(): string[] {
+  //   return Object.keys(this.listsmap);
+  // }
 
   getList(name: string): ShoppingList {
     return this.listsmap[name];

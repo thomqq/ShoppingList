@@ -10,6 +10,7 @@ import { ListPage } from '../pages/list/list';
 import { ListsPage } from '../pages/lists/lists';
 import { ShoppingListService } from '../services/ShoppingListService';
 import { ConfigPage } from "../pages/config/config";
+import { HttpModule } from "@angular/http";
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ConfigPage } from "../pages/config/config";
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
