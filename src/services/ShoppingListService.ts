@@ -22,7 +22,7 @@ export class ShoppingListService {
   //private data: String[];
 
   constructor(public http: Http) {
-    this.listsmap['pierwsza'] = {name: 'pierwsza', items: [{name: 'a', isSelected: false}, {name: 'aa', isSelected: false}, {name: 'aaa', isSelected: false}]};
+    this.listsmap['pierwsza'] = {name: 'pierwsza1', items: [{name: 'a', isSelected: false}, {name: 'aa', isSelected: false}, {name: 'aaa', isSelected: false}]};
     this.listsmap['druga'] = {name: "druga", items: [{name: 'b', isSelected: false}]};
     this.listsmap['trzecia'] = {name: 'trzecia', items: [{name: 'c', isSelected: false}]};
     this.listsmap['czwarta'] = {name: "czwarta", items: [{name: 'd', isSelected: false}]};
