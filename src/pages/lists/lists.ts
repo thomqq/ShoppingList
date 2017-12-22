@@ -16,7 +16,8 @@ export class ListsPage implements OnInit {
   }
 
   ngOnInit(): void {
-    this.shoppingLists = this.shoppingListService.getListsName();
+    this.shoppingListService.getListsName().then( item => this.shoppingLists.concat(item))
+      .catch( res => alert(res.toString()));
   }
 
   goToList( name: string ) {

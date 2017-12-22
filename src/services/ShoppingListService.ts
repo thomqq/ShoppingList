@@ -18,7 +18,7 @@ export class ShoppingList {
 export class ShoppingListService {
 
   listsmap = {};
-  restUrl="http://arxsoft.net:8080/";
+  restUrl="http://localhost:8080/";
   //private data: String[];
 
   constructor(public http: Http) {
@@ -31,9 +31,9 @@ export class ShoppingListService {
 
   }
 
-  getListsName() {
+  getListsName() : Promise<string[]>{
     return new Promise(resolve => {
-      this.http.get(this.restUrl+'/pobierzSlownikPozycji').subscribe(data => {
+      this.http.get(this.restUrl+'/listyZakupow').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
